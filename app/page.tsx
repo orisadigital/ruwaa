@@ -1,8 +1,10 @@
 import ActionButton from "./components/ActionButton";
 import Faq from "./components/Faq";
 import Gallery from "./components/Gallery";
+import Marquee from "./components/Marquee";
 import About from "./components/About";
 import Pillars from "./components/Pillars";
+import PinnedImage from "./components/PinnedImage";
 import Values from "./components/Values";
 
 export default function Home() {
@@ -79,8 +81,17 @@ export default function Home() {
         </a>
       </section>
 
+      <Marquee />
       <Pillars />
       <About />
+
+      <PinnedImage
+        src="/image/surau.png"
+        alt="Surau di RUWAA Residence"
+        width={1672}
+        height={941}
+      />
+
       <Values />
       <Gallery />
       <Faq />

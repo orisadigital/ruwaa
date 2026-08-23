@@ -627,12 +627,15 @@ body {
 
 .about {
   --about-pad: 40px;
-  padding: 128px var(--about-pad) 0;
+  /* no side padding here: the pinned image must be able to measure the full
+     viewport width. The text block pads itself instead. */
+  padding: 128px 0 136px;
   background: #2e2c2a;
   color: #f4ecd8;
 }
 
 .about-inner {
+  padding-inline: var(--about-pad);
   display: grid;
   grid-template-columns: 1fr 2fr;
   gap: 40px;
@@ -686,7 +689,7 @@ body {
 @media (max-width: 900px) {
   .about {
     --about-pad: 24px;
-    padding: 88px var(--about-pad) 0;
+    padding: 88px 0 96px;
   }
 
   .about-inner {
@@ -699,30 +702,43 @@ body {
   }
 }
 
-.parallax {
-  position: relative;
+/* The image sticks to the viewport; every section after it is lifted onto a
+   higher layer so it scrolls up over the top. */
+.pinned {
+  position: sticky;
+  z-index: 0;
+  top: 0;
+  display: grid;
+  place-items: center;
+  height: 100vh;
   overflow: hidden;
-  aspect-ratio: 16 / 9;
+  background: #2e2c2a;
 }
 
-.parallax-image {
-  position: absolute;
-  top: -12%;
-  left: 0;
+.values,
+.gallery,
+.faq,
+.footer {
+  position: relative;
+  z-index: 1;
+}
+
+.pinned-image {
+  display: block;
   width: 100%;
-  height: 124%;
-  object-fit: cover;
-  will-change: transform;
+  height: auto;
 }
 
-.about-parallax {
+.values {
+  background: #ffffff;
+}
+
+.about-pinned {
   margin-top: 96px;
-  /* full-bleed: cancel the section padding on both sides */
-  margin-inline: calc(var(--about-pad) * -1);
 }
 
 @media (max-width: 900px) {
-  .about-parallax {
+  .about-pinned {
     margin-top: 64px;
   }
 }
@@ -1161,5 +1177,104 @@ body {
   .menu-toggle-bars::before,
   .menu-toggle-bars::after {
     transition: none;
+  }
+}
+
+/* Scroll highlight (GSAP) */
+.word {
+  display: inline-block;
+}
+
+.word-inner {
+  display: inline-block;
+  will-change: transform;
+}
+
+/* --- Marquee ------------------------------------------------------------- */
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.marquee {
+  position: relative;
+  z-index: 1;
+  padding: 20px 0;
+  overflow: hidden;
+  background: #2e2c2a;
+  color: #f4ecd8;
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee-slide 34s linear infinite;
+}
+
+.marquee-group {
+  display: flex;
+  flex: none;
+}
+
+.marquee-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 22px;
+  padding-right: 22px;
+  font-family: var(--font-heading, "GT Ultra Median"),
+    var(--font-heading-fallback, Georgia), serif;
+  font-size: clamp(17px, 2vw, 28px);
+  line-height: 1.2;
+  white-space: nowrap;
+}
+
+.marquee-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+/* Two identical groups sit side by side; sliding exactly half the track puts
+   the second where the first began, so the loop has no seam. */
+@keyframes marquee-slide {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation: none;
+  }
+}
+
+/* Cards entering and leaving the track fade at the edges instead of being
+   sliced off mid-photo. */
+.pillars-track {
+  --edge-fade: 64px;
+  mask-image: linear-gradient(
+    90deg,
+    transparent 0,
+    #000 var(--edge-fade),
+    #000 calc(100% - var(--edge-fade)),
+    transparent 100%
+  );
+}
+
+@media (max-width: 640px) {
+  .pillars-track {
+    --edge-fade: 24px;
   }
 }

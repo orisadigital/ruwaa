@@ -1,5 +1,5 @@
 import ActionButton from "./ActionButton";
-import ParallaxImage from "./ParallaxImage";
+import ScrollHighlight from "./ScrollHighlight";
 
 export default function About() {
   return (
@@ -11,26 +11,16 @@ export default function About() {
         </p>
 
         <div className="about-body">
-          <p className="about-text">
-            Di RUWAA Residence, kami membantu individu yang berhadapan dengan
-            ketagihan dadah dan masalah sosial untuk membina semula kehidupan
-            melalui program pemulihan yang tersusun, persekitaran yang kondusif
-            dan bimbingan yang menyeluruh.
-          </p>
+          <ScrollHighlight
+            className="about-text"
+            text="Di RUWAA Residence, kami membantu individu yang berhadapan dengan ketagihan dadah dan masalah sosial untuk membina semula kehidupan melalui program pemulihan yang tersusun, persekitaran yang kondusif dan bimbingan yang menyeluruh."
+          />
 
           <ActionButton href="/perihal" variant="cream">
             Ketahui Lebih Lanjut
           </ActionButton>
         </div>
       </div>
-
-      <ParallaxImage
-        className="about-parallax"
-        src="/image/surau.png"
-        alt="Surau di RUWAA Residence"
-        width={1672}
-        height={941}
-      />
     </section>
   );
 }
