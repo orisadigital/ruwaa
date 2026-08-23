@@ -734,7 +734,8 @@ button.btn {
 .pinned-image {
   display: block;
   width: 100%;
-  height: auto;
+  height: 100%;
+  object-fit: cover;
 }
 
 .values {
@@ -1076,7 +1077,15 @@ button.btn {
   }
 
   .header {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
     padding: 8px 16px;
+  }
+
+  .header-inner {
+    flex: 1;
+    min-width: 0;
   }
 
   .header-inner {
@@ -1085,9 +1094,12 @@ button.btn {
   }
 
   .menu-toggle {
-    position: absolute;
-    top: 18px;
-    left: 12px;
+    /* in flow, not absolute: a fixed bar can be wider than the visible screen,
+       which pushes a right-anchored button out of view */
+    order: 2;
+    flex: none;
+    align-self: center;
+    margin-right: -11px; /* pull the 22px bars onto the 16px margin */
     display: grid;
     place-items: center;
     width: 44px;
@@ -1141,7 +1153,7 @@ button.btn {
   .logo {
     /* keep the mark in the bar itself, above the panel */
     order: -1;
-    justify-self: center;
+    justify-self: start;
   }
 
   .logo img {
@@ -1170,14 +1182,10 @@ button.btn {
 
   .header.is-open .header-right {
     display: flex;
-    justify-self: stretch;
+    justify-self: start;
     padding-bottom: 20px;
   }
 
-  .header.is-open .btn-primary {
-    width: 100%;
-    justify-content: space-between;
-  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -1400,6 +1408,10 @@ button.btn {
   }
 
   .contact-map {
+    /* the base min-height plus a ratio would resolve WIDTH from height
+       (520 * 4/3 = 693px) and push the page wider than the screen */
+    align-self: auto;
+    min-height: 0;
     aspect-ratio: 4 / 3;
   }
 }
