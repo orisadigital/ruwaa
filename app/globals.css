@@ -1098,7 +1098,9 @@ button.btn {
        which pushes a right-anchored button out of view */
     order: 2;
     flex: none;
-    align-self: center;
+    /* stay on the logo row: centring would drop it down the panel when open */
+    align-self: flex-start;
+    margin-top: 10px;
     margin-right: -11px; /* pull the 22px bars onto the 16px margin */
     display: grid;
     place-items: center;
