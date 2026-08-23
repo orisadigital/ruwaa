@@ -250,6 +250,14 @@ body {
 
 /* --- Buttons ------------------------------------------------------------ */
 
+button.btn {
+  border: none;
+  /* font-family only: the shorthand would drag the form control size in and
+     change the label roll distance, which is set in em */
+  font-family: inherit;
+  cursor: pointer;
+}
+
 .btn {
   position: relative;
   z-index: 0;
@@ -1276,5 +1284,122 @@ body {
 @media (max-width: 640px) {
   .pillars-track {
     --edge-fade: 24px;
+  }
+}
+
+/* --- Contact ------------------------------------------------------------- */
+
+.contact {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  /* the map runs to the left and bottom edges, so the padding lives on the
+     form column instead of the section */
+  padding: 0;
+  background: #ffffff;
+  color: #1a1a1a;
+}
+
+.contact-map {
+  position: relative;
+  align-self: stretch;
+  min-height: 520px;
+  overflow: hidden;
+  background: #eceae6;
+}
+
+.contact-map iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  filter: grayscale(0.25);
+}
+
+.contact-panel {
+  align-self: stretch;
+  padding: 80px 48px;
+  background: #2e2c2a;
+  color: #f4ecd8;
+}
+
+.contact-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin: 0;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.contact-kicker-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.contact-title {
+  margin: 18px 0 36px;
+  font-family: var(--font-heading, "GT Ultra Median"),
+    var(--font-heading-fallback, Georgia), serif;
+  font-size: clamp(30px, 3.4vw, 48px);
+  font-weight: 400;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.field-label {
+  font-size: 14px;
+  color: rgba(244, 236, 216, 0.6);
+}
+
+.field input,
+.field textarea {
+  width: 100%;
+  padding: 15px 16px;
+  border: 1px solid rgba(244, 236, 216, 0.28);
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  resize: vertical;
+}
+
+.field input:focus,
+.field textarea:focus {
+  outline: none;
+  border-color: #f4ecd8;
+}
+
+.contact-form .btn-primary {
+  align-self: flex-start;
+}
+
+@media (max-width: 900px) {
+  .contact {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0;
+    padding: 0;
+  }
+
+  .contact-panel {
+    padding: 64px 24px 72px;
+  }
+
+  .contact-map {
+    aspect-ratio: 4 / 3;
   }
 }

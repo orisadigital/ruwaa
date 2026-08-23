@@ -1,4 +1,5 @@
 import ActionButton from "./components/ActionButton";
+import Contact from "./components/Contact";
 import Faq from "./components/Faq";
 import Gallery from "./components/Gallery";
 import Marquee from "./components/Marquee";
@@ -95,6 +96,7 @@ export default function Home() {
       <Values />
       <Gallery />
       <Faq />
+      <Contact />
     </main>
   );
 }
