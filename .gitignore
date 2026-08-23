@@ -42,3 +42,9 @@ next-env.d.ts
 
 # local master assets (originals kept outside the repo)
 /video
+
+# cloudflare / opennext
+.open-next
+.wrangler
+.dev.vars
+cloudflare-env.d.ts
