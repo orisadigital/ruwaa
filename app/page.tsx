@@ -1,69 +1,89 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+import ActionButton from "./components/ActionButton";
+import Faq from "./components/Faq";
+import Gallery from "./components/Gallery";
+import About from "./components/About";
+import Pillars from "./components/Pillars";
+import Values from "./components/Values";
 
 export default function Home() {
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
+    <main>
+      <section className="hero">
+        <video
+          className="hero-video"
+          src="/video/hero.mp4"
+          autoPlay
+          muted
+          loop
+          playsInline
+          poster="/video/hero-poster.jpg"
+          preload="auto"
+          aria-hidden="true"
         />
-        <div className={styles.intro}>
-          <h1>
-            To get started, edit the{" "}
-            <code className={styles.code}>page.tsx</code> file.
-          </h1>
-          <p>
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learning
-            </a>{" "}
-            center.
+        <div className="hero-scrim" aria-hidden="true" />
+
+        <div className="hero-content">
+          <p className="hero-kicker">
+            <span className="hero-kicker-dot" aria-hidden="true" />
+            RUWAA Residence
+            <span className="hero-kicker-dot" aria-hidden="true" />
           </p>
+          <h1 className="hero-title">
+            Bangkit Semula.
+            <br />
+            Bina Semula.
+          </h1>
+          <p className="hero-subtitle">Hidup Lebih Bermakna</p>
+          <div className="hero-actions">
+            <ActionButton href="/daftar">Daftar Sekarang</ActionButton>
+            <ActionButton href="/rehab" variant="ghost">
+              Ketahui Lebih Lanjut
+            </ActionButton>
+          </div>
         </div>
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+
+        <a href="#seterusnya" className="scroll-cue" aria-label="Skrol ke bawah">
+          <svg
+            className="scroll-cue-ring"
+            viewBox="0 0 100 100"
+            aria-hidden="true"
           >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className={styles.secondary}
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+            <defs>
+              <path
+                id="scroll-cue-path"
+                d="M50,50 m-38,0 a38,38 0 1,1 76,0 a38,38 0 1,1 -76,0"
+                fill="none"
+              />
+            </defs>
+            <text>
+              <textPath href="#scroll-cue-path" startOffset="0">
+                Skrol ke bawah • Skrol ke bawah •&nbsp;
+              </textPath>
+            </text>
+          </svg>
+          <span className="scroll-cue-arrow" aria-hidden="true">
+            <svg
+              viewBox="0 0 24 24"
+              width="22"
+              height="22"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <path d="M12 5v14" />
+              <path d="m6 13 6 6 6-6" />
+            </svg>
+          </span>
+        </a>
+      </section>
+
+      <Pillars />
+      <About />
+      <Values />
+      <Gallery />
+      <Faq />
+    </main>
   );
 }
