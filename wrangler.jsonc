@@ -19,6 +19,11 @@
   "images": {
     "binding": "IMAGES"
   },
+  // Workers Builds runs `npx wrangler deploy` with no build step, so build the
+  // OpenNext bundle here.
+  "build": {
+    "command": "npx opennextjs-cloudflare build"
+  },
   "observability": {
     "enabled": true
   }
