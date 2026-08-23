@@ -18,11 +18,6 @@ const FAQS: {
     ],
   },
   {
-    question: "Apakah yang dilakukan semasa program Detox?",
-    answer:
-      "Program Detox berlangsung selama 7–14 hari dan merangkumi penilaian perubatan, temu bual bio-psiko-sosial, pemantauan dan pemerhatian klien serta rujukan kepada program atau intervensi yang sesuai.",
-  },
-  {
     question: "Adakah terdapat kaunseling?",
     answer:
       "Ya. Program merangkumi kaunseling dan pembangunan diri untuk membantu peserta memahami diri, mengurus emosi dan membina keyakinan diri.",
@@ -48,39 +43,14 @@ const FAQS: {
       "Ya. Peringkat Re-entry merangkumi persediaan kembali ke keluarga, latihan kemahiran hidup, bimbingan kerjaya dan pendidikan, sokongan sosial serta integrasi semula ke masyarakat.",
   },
   {
-    question: "Apakah nilai yang diterapkan di RUWAA Residence?",
-    answer:
-      "Antara nilai yang ditekankan ialah pemikiran positif, hubungan sosial yang sihat, emosi yang stabil, rohani yang kuat, disiplin, tanggungjawab, kesediaan untuk kembali ke masyarakat dan hubungan kekeluargaan yang sihat.",
-  },
-  {
     question: "Siapakah yang boleh memohon kemasukan?",
     answer:
       "Kemasukan memerlukan individu mempunyai kad pengenalan dan menyertai secara sukarela atau secara paksaan, tertakluk kepada syarat kesihatan dan undang-undang yang dinyatakan.",
   },
   {
-    question: "Apakah syarat kesihatan untuk kemasukan?",
-    answer:
-      "Pemohon perlu melalui perkara seperti sejarah kesihatan dan penyakit, diagnosis penyakit di hospital dan jenis ubat, serta memastikan keadaan kesihatan yang sesuai untuk menyertai program. Pemohon juga perlu mendapatkan rujukan ke fasiliti kesihatan sebelum kemasukan jika diperlukan.",
-  },
-  {
-    question: "Adakah terdapat syarat berkaitan undang-undang?",
-    answer:
-      "Ya. Syarat undang-undang termasuk perkara berkaitan kes polis, kes mahkamah dalam jaminan atau hadir bicara semula, perintah pengawasan AADK dan perintah pengawasan/kaedah lapor diri masa datang.",
-  },
-  {
     question: "Apakah kemudahan yang disediakan?",
     answer:
       "Kemudahan yang disediakan termasuk bilik penginapan, ruang makan, ruang santai, ruang solat serta kawasan aktiviti dan rekreasi.",
-  },
-  {
-    question: "Adakah peserta menjalani aktiviti fizikal?",
-    answer:
-      "Ya. Aktiviti rekreasi dan sukan merupakan sebahagian daripada pengisian program bagi membantu meningkatkan kesihatan, mengurangkan tekanan serta membina semangat dalam diri.",
-  },
-  {
-    question: "Berapa lama tempoh program pemulihan?",
-    answer:
-      "Program Detox berlangsung selama 7–14 hari. Tempoh keseluruhan bagi peringkat Primary dan Re-entry tidak dinyatakan secara khusus.",
   },
   {
     question: "Bagaimana cara untuk mendapatkan maklumat lanjut atau memohon kemasukan?",
