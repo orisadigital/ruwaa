@@ -12,9 +12,11 @@ export default function Home() {
   return (
     <main>
       <section className="hero">
+        {/* Two 24fps sources. The original was 24fps content padded to 30fps by
+            duplicating every fifth frame, which made the motion judder. The browser
+            picks a source once, at load; it is not re-picked on resize. */}
         <video
           className="hero-video"
-          src="/video/hero.mp4"
           autoPlay
           muted
           loop
@@ -22,7 +24,10 @@ export default function Home() {
           poster="/video/hero-poster.jpg"
           preload="auto"
           aria-hidden="true"
-        />
+        >
+          <source src="/video/hero-mobile.mp4" media="(max-width: 900px)" type="video/mp4" />
+          <source src="/video/hero-1280.mp4" type="video/mp4" />
+        </video>
         <div className="hero-scrim" aria-hidden="true" />
 
         <div className="hero-content">
